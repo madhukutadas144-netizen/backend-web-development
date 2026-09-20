@@ -47,9 +47,9 @@ function streamFile() {
   // TODO: listen for the writable's "finish" event and log a done message,
   //       e.g. "stream: finished copying via 64KB chunks (flat memory)".
   const readable = fs.createReadStream(INPUT);
-  const writeable = fs.createWriteStream(OUTPUT);
-  readable.pipe(writeable);
-  writeable.on("finish", () => {
+  const writable = fs.createWriteStream(OUTPUT);
+  readable.pipe(writable);
+  writable.on("finish", () => {
     console.log("stream: finished copying via 64KB chunks (flat memory)");
 
   });
